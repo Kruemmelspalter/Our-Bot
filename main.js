@@ -13,4 +13,4 @@ client.on('message', msg => {
   swearwords.check(msg);
 });
 
-client.login('token');
+client.login(auth.token);
