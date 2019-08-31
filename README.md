@@ -1,2 +1,1 @@
 # Our-Bot
-*Döner*
