@@ -10,6 +10,7 @@ client.on('ready', () => {
 
 client.on('message', msg => {
   swearwords.check(msg);
+  web-request.check(msg);
 });
 
 client.login(auth.token);
