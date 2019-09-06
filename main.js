@@ -1,7 +1,6 @@
 const auth = require("./auth.json");
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const swearwords = require("./swearwords.js");
 const web-request = require("./web-request.js");
 
 client.on('ready', () => {
@@ -9,7 +8,12 @@ client.on('ready', () => {
 });
 
 client.on('message', msg => {
-  swearwords.check(msg);
+  var i;
+    for(i = 0;i<words.swearwords;i++){
+      if(words.swearwords[i] in msg.content) {
+        msg.delete();
+      }
+    }
   web-request.check(msg);
 });
 
