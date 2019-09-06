@@ -1,7 +1,6 @@
 const auth = require("./auth.json");
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const web-request = require("./web-request.js");
 const words = require("./words.json");
 const user-data = require("./user-data.json");
 const levels = require("./levels.json");
@@ -37,8 +36,8 @@ client.on('message', msg => {
           break;
         default:
           break;
-
-    web-request.check(msg);
+      }
+    }
  } catch(err) {
    console.log(err);
  }
