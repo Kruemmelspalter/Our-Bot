@@ -18,10 +18,9 @@ client.on('ready', () => {
 });
 
 client.on('message', msg => {
-  var date = new Date();
   //swearwords
   var i;
-  for(i = 0;i<words.swearwords.length();i++){
+  for(i = 0;i<words.swearwords;i++){
     if(words.swearwords[i] in msg.content) 
       msg.delete();
       return;
@@ -35,13 +34,6 @@ client.on('message', msg => {
       case "level" :
         msg.reply("Your XP: "+user-data[username].xp + "\r\nYour level: "+user-data[username].level+"\r\nYou need another "+ levels[user-data[username].level + 1] - user-data[username].xp + " XP to reach the next level.");
         break;
-      case "chests":
-        var new_chests = Math.floor((date.getTime - user_data[msg.author.username].last_chest)/ 86400000);
-        for(i = 0;i<new_chests;i++){
-          var XP = Math.floor(Math.ramdom() * 25 +25);
-          msg.reply("You got a new chest. In it, there is a Sack Of Experience with "+XP+" XP!");
-          giveXP(msg.author.username,XP);
-          user_data[msg.author.username].last_chest = date.getTime();
       default:
         break;
     }
@@ -52,8 +44,7 @@ client.on('message', msg => {
 });
 
 client.on("guildMemberAdd", member => {
-  var date = new Date();
-  user_data[member.user.username] = {"xp":0,"level":0,"last_chest":date.getTime()};
+  user_data[member.user.username] = {"xp":0,"level":0};
 });
 
 client.login(auth.token);
